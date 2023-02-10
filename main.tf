@@ -1,8 +1,6 @@
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-1"
-  access_key = "AKIA3BWTH53WR2KHAUV3"
-  secret_key = "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"
 }
 
 # Create VPC
@@ -187,12 +185,12 @@ resource "aws_security_group" "database_sg" {
 module "bastion" {
   source            = "github.com/jetbrains-infra/terraform-aws-bastion-host"
   subnet_id         = "10.0.1.0/24"
-  ssh_key           = "utc-key"
+  ssh_key           = "s"
   internal_networks = module.vpc.private_subnets
   project           = "myProject"
 }
 
-#key_name = "utc-key"
+
 
 # 7. Create a Network Interface
 
